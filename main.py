@@ -74,10 +74,16 @@ while STATE_ADDING:
             #Für bessere Lesbarkeit. Neuzuweisung der Laufvariable zu einer allgemeinen 
             anzahl_raeume = i
             STATE_ADDING = False    
+
+f = open("Wohnung", "x")
+f.write("Wohnungsübersicht\n\n")
+f.write("_________________________\n")
  
 #Schleife über die Raumobjekte zur Ausgabe aller Namen und den Raumfächen.          
 for j in range(anzahl_raeume):
     print(raeume.get(f"raum{j}").name + ": " + str(raeume.get(f"raum{j}").flaeche) + " m^2")
+    f.write(raeume.get(f"raum{j}").name + ": " + str(raeume.get(f"raum{j}").flaeche) + " m^2")
+    f.write("\n")
     
 print("Möchten sie die Gesamtfläche aller Räume berechnen? (ja/nein): ")
 
@@ -86,4 +92,6 @@ if input().lower() == 'ja':
     for j in range(anzahl_raeume):
         gesamtflaeche += raeume.get(f"raum{j}").flaeche
     print("Ihre Wohnung hat insgesamt " + str(anzahl_raeume) + " Räume.")
-    print("Die Gesamtfläche aller Räume beträgt: " + str(gesamtflaeche) + " m^2")    
+    print("Die Gesamtfläche aller Räume beträgt: " + str(gesamtflaeche) + " m^2") 
+    f.write("Ihre Wohnung hat insgesamt " + str(anzahl_raeume) + " Räume."+"\n")  
+    f.write("Die Gesamtfläche aller Räume beträgt: " + str(gesamtflaeche) + " m^2")
