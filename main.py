@@ -17,18 +17,21 @@ class raum:
     def flaeche(self):
         return self.raumflaeche
     
-    
+print("Willkommen im Maklerprogramm. \nIm Folgenden können Sie Räume nach Bedarf bennen und die Maße angeben. \nSpezifizieren dabei zuerst, ob der Raum einfach Viereckig ist oder ein Polynom ist.") 
+print("Im Anschluss können Sie die Gesamtfläche berechnen lassen!")   
+print("__________________________________________________________")
     
 while STATE_ADDING:
+        print("__________________________________________________________")
         print("Hat der Raum mehr als vier Ecken?")
         tempInput = input().lower()
         if(tempInput == "ja"):
             print("Geben sie einen Raumnamen ein! Und geben sie danach die Länge und Breite der Teilräume ein!")
             neuer_raum = raum(input("Raumname: "),0,0)
             raeume[f"raum{i}"] = neuer_raum
-            anzahl_teilraueme = 0
+            anzahl_teilraueme = 1
             print("Geben sie folgend die einzelnen Teilräume ein!")
-            while tempInput == "ja" and  anzahl_teilraueme < 2:
+            while tempInput == "ja" and  anzahl_teilraueme < 3:
                 print(f"Geben sie die Infos für Teilraum_{anzahl_teilraueme} an!")
                 anzahl_teilraueme += 1 
                 unterraum = raum(f"{raeume[f"raum{i}"].name}_{anzahl_teilraueme}",float(input("Teilraumbreite: ")), float(input("Teilraumlänge: ")))
